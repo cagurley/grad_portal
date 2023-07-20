@@ -1,0 +1,16 @@
+<div id="p-tools" class="p-section">
+  <div class="p-navdrop">
+    <div class="p-ndcontrol" title="Display account tools" tabindex="0">
+      <span class="p-ndlabel">Account Tools</span>
+      {!ndicon.svg!}
+    </div>
+    <ul class="p-ndoptions">
+      <li class="p-ndoption"><a href="/register/?id=be6a4d15-beaf-40ce-bde3-c29b9bbeefd8">Update Contact Info</a></li>
+      <li class="p-ndoption"><a href="/account/password?r=/portal/status&amp;referrer=/portal/status">Change Password</a></li>
+      {% if base[0].admitted == '1' %}
+      <li class="p-ndoption"><a href="https://louisville.edu/" target="_blank">Activate UofL Email</a></li>
+      {% endif %}
+      <li class="p-ndoption"><a href="/account/logout?r=/portal/status&amp;referrer=/portal/status">Logout</a></li>
+    </ul>
+  </div>
+</div>

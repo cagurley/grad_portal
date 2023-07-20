@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  'use strict';
+
+  var tabbed = $('#p-main').find('.p-tabbed');
+  var navParents = tabbed.parent().parent();
+  tabbed.hide();
+  navParents.each(function () {
+    if ($(this).find('#p-gwchecklist-tab').length > 0) {
+      $(this).find('#p-gwchecklist-tab').addClass('p-active');
+      $(this).find('#p-gwchecklist-tabbed').show();
+    } else {
+      $(this).find('.p-tab').first().addClass('p-active');
+      $(this).find('.p-tabbed').first().show();
+    }
+  });
+  $('.p-tab').on('click keypress', function () {
+    var navParent = $(this).parent().parent();
+    var someTabbed = navParent.find('.p-tabbed');
+    var id = $(this).attr('id');
+    id = '#' + id + 'bed';
+    $(this).siblings().removeClass('p-active');
+    $(this).addClass('p-active');
+    someTabbed.hide();
+    navParent.find(id + '.p-tabbed').show();
+  });
+  $('.p-tab').on('mouseover focusin', function () {
+    $(this).addClass('p-focus');
+  });
+  $('.p-tab').on('mouseout focusout', function () {
+    $(this).removeClass('p-focus');
+  });
+</script>

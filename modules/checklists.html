@@ -1,0 +1,40 @@
+{% if check_app.size > 0 %}
+<div id="p-checklists" class="p-section">
+  <h2>Your Checklists</h2>
+  <ul class="p-row p-navtabs">
+    <li id="p-appchecklist-tab" class="p-col p-tab" title="Display application checklists" tabindex="0"><span class="d-none-sm">App</span><span class="d-none d-initial-sm">Application</span></li>
+  </ul>
+  <div id="p-appchecklist-tabbed" class="p-tabbed">
+    <p>Please complete the following <strong>Application Checklist</strong> items. Those marked with a red X are required and not yet completed. Some items may take 30-60 minutes to update.</p>
+    <div class="p-table">
+      {% for checklist in check_app %}
+      <div class="p-tablerow">
+        <div class="p-row">
+          <img class="status-icon" src="/shared/{{checklist.image}}.png" alt="Status: {{checklist.status}}" title="Status: {{checklist.status}}">
+          <div class="p-col">
+            {% if checklist.href.size > 0 %}
+              {% assign fchar = checklist.href | slice: 0 %}
+              {% if fchar == '/' or fchar == '#' %}
+              <a href="{{checklist.href}}">{{checklist.subject}}</a>
+              {% else %}
+              <a href="{{checklist.href}}" target="_blank">{{checklist.subject}}</a>
+              {% endif %}
+            {% else %}
+            <span>{{checklist.subject}}</span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="p-row">
+          <div class="p-col">
+            <strong>{{checklist.status}}</strong>
+          </div>
+          <div class="p-col">
+            <strong>{{checklist.status_date}}</strong>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
