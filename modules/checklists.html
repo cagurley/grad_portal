@@ -1,4 +1,4 @@
-{% if check_app.size > 0 %}
+{% if check.size > 0 %}
 <div id="p-checklists" class="p-section">
   <h2>Your Checklists</h2>
   <ul class="p-row p-navtabs">
@@ -7,7 +7,7 @@
   <div id="p-appchecklist-tabbed" class="p-tabbed">
     <p>Please complete the following <strong>Application Checklist</strong> items. Those marked with a red X are required and not yet completed. Some items may take 30-60 minutes to update.</p>
     <div class="p-table">
-      {% for checklist in check_app %}
+      {% for checklist in check %}
       <div class="p-tablerow">
         <div class="p-row">
           <img class="status-icon" src="/shared/{{checklist.image}}.png" alt="Status: {{checklist.status}}" title="Status: {{checklist.status}}">
